@@ -13,7 +13,7 @@ for _ in range(M):
 start, end = map(int, sys.stdin.readline().split())
 distance = [INF] * (N + 1)
 distance[start] = 0
-visited = [False] * (N+1)
+visited = [False] * (N + 1)
 heap = list()
 heapq.heappush(heap, (0, start))
 
@@ -25,7 +25,7 @@ while heap:
     visited[now] = True
     for next, edge in value[now]:
         new_weight = weight + edge
-        if new_weight < distance[next]:
+        if not visited[next] and new_weight < distance[next]:
             distance[next] = new_weight
             heapq.heappush(heap, (new_weight, next))
 
