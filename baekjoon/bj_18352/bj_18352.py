@@ -11,20 +11,14 @@ for _ in range(m):
     a, b = map(int, sys.stdin.readline().split())
     graph[a].append(b)
 
-
-def bfs(x):
-    que = deque()
-    que.append(x)
-    visited[x] += 1
-    while que:
-        now = que.popleft()
-        for i in graph[now]:
-            if visited[i] == -1:
-                visited[i] = visited[now] + 1
-                que.append(i)
-
-
-bfs(x)
+que.append(x)
+visited[x] += 1
+while que:
+    now = que.popleft()
+    for i in graph[now]:
+        if visited[i] == -1:
+            visited[i] = visited[now] + 1
+            que.append(i)
 
 for i in range(1, n + 1):
     if visited[i] == k:
